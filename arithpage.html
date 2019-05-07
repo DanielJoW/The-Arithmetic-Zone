@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <title>The Arithmetic Zone!</title>
+  <link href="arithstyle.css" type="text/css" rel="stylesheet">
+</header>
+<body>
+  <div id= intro>
+  <h1>Welcome to the Arithmetic Zone!</h1>
+  <h2>This ancient web page is your gateway to the lost arts of addition,
+    subtraction, multiplication, and division! Enter numbers on
+    each side of the equation, and watch as we consult the sacred stones
+    to bring you the answers you seek!</h2>
+  </div>
+  <div id=additionzone>
+    <form action="/submit-addition">
+         <input type="text" name="addnumber1" id="addnumber1" placeholder="Starting Number..." required>
+    <form action="/submit-addition2">
+         <input type="text" name="addnumber2" id="addnumber2" placeholder="Number to Add..." required>
+         <button type="button" onclick="add()">Add!</button>
+         </form>
+    <h2 id="sumanswer"></h2>
+    <script language="javascript">
+    function add(){
+      var add1=document.getElementById('addnumber1').value;
+      var add2=document.getElementById('addnumber2').value;
+      var sum = parseFloat(add1)+parseFloat(add2);
+      if(!isNaN(sum)){
+      document.getElementById("sumanswer").innerHTML= sum + " is your requested sum!";
+    }
+      }
+    </script>
+  </div>
+  <div id=subtractionzone>
+    <form action="/submit-subtraction">
+         <input type="text" name="subtractnumber1" id="subtractnumber1" placeholder="Starting Number..." required>
+    <form action="/submit-subtraction2">
+         <input type="text" name="subtractnumber2" id="subtractnumber2" placeholder="Number to Subtract..." required>
+         <button type="button" onclick="subtract()">Subtract!</button>
+         </form>
+    <h2 id="differenceanswer"></h2>
+    <script language="javascript">
+    function subtract(){
+      var subtract1=document.getElementById('subtractnumber1').value;
+      var subtract2=document.getElementById('subtractnumber2').value;
+      var difference = parseFloat(subtract1)-parseFloat(subtract2);
+      if(!isNaN(difference)){
+      document.getElementById("differenceanswer").innerHTML= difference + " is your requested difference!";
+    }
+      }
+    </script>
+    <div id=multiplicationzone>
+      <form action="/submit-multiplication">
+           <input type="text" name="multiplynumber1" id="multiplynumber1" placeholder="Starting Number..." required>
+      <form action="/submit-multiplication2">
+           <input type="text" name="multiplynumber2" id="multiplynumber2" placeholder="Number to Multiply by..." required>
+           <button type="button" id="multibutton" onclick="multiply()">Multiply!</button>
+           </form>
+      <h2 id="productanswer"></h2>
+      <script language="javascript">
+      function multiply(){
+        var multiply1=document.getElementById('multiplynumber1').value;
+        var multiply2=document.getElementById('multiplynumber2').value;
+        var product = parseFloat(multiply1)*parseFloat(multiply2);
+        if(!isNaN(product)){
+        document.getElementById("productanswer").innerHTML= product + " is your requested product!";
+      }
+        }
+      </script>
+      <div id=divisionzone>
+        <form action="/submit-division">
+             <input type="text" name="dividenumber1" id="dividenumber1" placeholder="Starting Number..." required>
+        <form action="/submit-division2">
+             <input type="text" name="dividenumber2" id="dividenumber2" placeholder="Number to Divide by..." required>
+             <button type="button" onclick="divide()">Divide!</button>
+             </form>
+        <h2 id="quotientanswer"></h2>
+        <script language="javascript">
+        function divide(){
+          var divide1=document.getElementById('dividenumber1').value;
+          var divide2=document.getElementById('dividenumber2').value;
+          var quotient = parseFloat(divide1)/parseFloat(divide2);
+          if(!isNaN(quotient)){
+          document.getElementById("quotientanswer").innerHTML= quotient + " is your requested quotient!";
+        }
+          }
+        </script>
+  </div>
+  <div id=quizheader>
+  <h1>True or False? Click to Reveal!<h1>
+  </div>
+  <div id= quizcontainer>
+    <div id= question1>
+      <h4>The word "arithmetic" essentially means "number art" in Greek.</h4>
+    </div>
+      <div id= answer1>
+        <h5><strong>True!</strong> The word "arithmos" roughly translates to number, and "tike" to art.</h5>
+      </div>
+      <div id= question2>
+        <h4>There are four key operations in arithmetic.</h4>
+      </div>
+        <div id= answer2>
+          <h5><strong>True!</strong> Addition, subtraction, multiplication, and division. You can do them all above!</h5>
+        </div>
+        <div id= question3>
+          <h4>Arithmetic is not considered part of Number Theory.</h4>
+        </div>
+          <div id= answer3>
+            <h5><strong>False!</strong> Arithmetic is so integral to Number Theory that it was even used as a synonym for it.</h5>
+          </div>
+          <div id= question4>
+            <h4>The history of arithmetic dates back to 2000 B.C.E.</h4>
+          </div>
+            <div id= answer4>
+              <h5><strong>False!</strong> Early evidence of addition and subtraction has been observed as early as 20,000 B.C.E.</h5>
+            </div>
+            <div id= question5>
+              <h4>Arithmetic was taught as an essential science in Universities during the Middle Ages.</h4>
+            </div>
+              <div id= answer5>
+                <h5><strong>False!</strong> During the Middle Ages arithmetic was taught as a liberal art. Weird.</h5>
+              </div>
+              <div id= question6>
+                <h4>Arithmetic must be performed according to the order of operations.</h4>
+              </div>
+                <div id= answer6>
+                  <h5><strong>True!</strong> Without the order of operations, our ability to create consistant mathematics falls apart!</h5>
+                </div>
+  </div>
+  <div id= outro>
+  <h3>Any answers gathered from the ancient methods are not
+  guaranteed to be correct. The stones can be fickle. If you catch them on
+  an off day it is generally considered best practice to lie in a shallow grave
+  for as long as it takes for the ennui to pass. In cases of extreme ennui
+  or existential glum, please contact your local youth pastor.
+  Methods used to compute any and all answers are both magic
+  and the sole intellectual property of the various witches and
+  wizards that run this page. Results may vary.</h3>
+  </div>
+  <script src="jquery-3.4.1.js"></script>
+  <script> $(function() {
+
+  $("#question1").click(function(){
+    $("#answer1").fadeToggle();
+  });
+
+  $("#question2").click(function(){
+    $("#answer2").fadeToggle();
+  });
+
+  $("#question3").click(function(){
+    $("#answer3").fadeToggle();
+  });
+
+  $("#question4").click(function(){
+    $("#answer4").fadeToggle();
+  });
+
+  $("#question5").click(function(){
+    $("#answer5").fadeToggle();
+  });
+
+  $("#question6").click(function(){
+    $("#answer6").fadeToggle();
+  });
+
+  });
+  </script>
+</body>
+<footer>
+</footer>
+</html>
