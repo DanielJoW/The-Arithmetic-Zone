@@ -24,18 +24,49 @@ h2 {
   padding-top: 2vw;
 }
 
+#domathgrid {
+  display: grid;
+  margin: auto;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  grid-column-gap: 12px;
+}
+
+#additionzone {
+  grid-row: 1;
+  grid-column: 1/2;
+  margin-left: 14vw;
+}
+
+#subtractionzone{
+  grid-row: 2;
+  grid-column: 1/2;
+  margin-left: 14vw;
+}
+
+#multiplicationzone{
+  grid-row: 1;
+  grid-column: 2/3;
+  margin-right: 14vw;
+}
+
+#divisionzone{
+  grid-row: 2;
+  grid-column: 2/3;
+  margin-right: 14vw;
+}
+
 form {
   margin-top: 2vw;
-  display: block;
   text-align: center;
 }
 
 input {
   height: 50px;
-  max-width: 200px;
-  min-width: 100px;
-  font-size: 17px;
+  width: 125px;
+  font-size: 10px;
   text-align: center;
+  font-weight: bolder;
 }
 
 button {
@@ -100,6 +131,7 @@ h5 {
   margin: auto;
   margin-left: 2vw;
   margin-right: 2vw;
+  margin-bottom: 2vw;
 }
 
 #question1 {
