@@ -18,7 +18,7 @@
          <input type="text" name="addnumber1" id="addnumber1" placeholder="Starting Number..." required>
     <form action="/submit-addition2">
          <input type="text" name="addnumber2" id="addnumber2" placeholder="Number to Add..." required>
-         <button type="button" onclick="add()">Add!</button>
+         <button type="button" onclick="add()">+</button>
          </form>
     <h2 id="sumanswer"></h2>
     <script language="javascript">
@@ -37,7 +37,7 @@
          <input type="text" name="subtractnumber1" id="subtractnumber1" placeholder="Starting Number..." required>
     <form action="/submit-subtraction2">
          <input type="text" name="subtractnumber2" id="subtractnumber2" placeholder="Number to Subtract..." required>
-         <button type="button" onclick="subtract()">Subtract!</button>
+         <button type="button" onclick="subtract()">-</button>
          </form>
     <h2 id="differenceanswer"></h2>
     <script language="javascript">
@@ -56,7 +56,7 @@
            <input type="text" name="multiplynumber1" id="multiplynumber1" placeholder="Starting Number..." required>
       <form action="/submit-multiplication2">
            <input type="text" name="multiplynumber2" id="multiplynumber2" placeholder="Number to Multiply by..." required>
-           <button type="button" id="multibutton" onclick="multiply()">Multiply!</button>
+           <button type="button" id="multibutton" onclick="multiply()">x</button>
            </form>
       <h2 id="productanswer"></h2>
       <script language="javascript">
@@ -75,14 +75,15 @@
              <input type="text" name="dividenumber1" id="dividenumber1" placeholder="Starting Number..." required>
         <form action="/submit-division2">
              <input type="text" name="dividenumber2" id="dividenumber2" placeholder="Number to Divide by..." required>
-             <button type="button" onclick="divide()">Divide!</button>
+             <button type="button" onclick="divide()">/</button>
              </form>
         <h2 id="quotientanswer"></h2>
         <script language="javascript">
         function divide(){
           var divide1=document.getElementById('dividenumber1').value;
           var divide2=document.getElementById('dividenumber2').value;
-          var quotient = parseFloat(divide1)/parseFloat(divide2);
+          var quotientunround = parseFloat(divide1)/parseFloat(divide2);
+          var quotient = quotientunround.toFixed(2);
           if(!isNaN(quotient)){
           document.getElementById("quotientanswer").innerHTML= quotient + " is your requested quotient!";
         }
@@ -131,6 +132,66 @@
                   <h5><strong>True!</strong> Without the order of operations, our ability to create consistant mathematics falls apart!</h5>
                 </div>
   </div>
+  <div id= problemgeneratorhead>
+    <h1>Practice Problem Generator</h1>
+  </div>
+  <div id= problemgenerator>
+    <h2>Click the button below to generate two random numbers between 1 and 100! Try to solve the problems on your own, then use the buttons below to check your answers!</h2>
+    <button type="button" id="generatebutton" onclick="generate()">Generate!</button>
+    <h4 id=randomnumber1>...</h4>
+    <h4 id=randomnumber2>...</h4>
+    <button type="button" id="randomadd" onclick="addrandom()">+</button>
+    <button type="button" id="randomsub" onclick="subrandom()">-</button>
+    <button type="button" id="randommult" onclick="multrandom()">x</button>
+    <button type="button" id="randomdiv" onclick="divrandom()">/</button>
+    <h5 id= randomanswer></h5>
+    <script language="javascript">
+
+function generate(){
+    var generate1 = Math.floor(Math.random()*100);
+    var generate2 = Math.floor(Math.random()*100);
+      document.getElementById("randomnumber1").innerHTML= generate1;
+      document.getElementById("randomnumber2").innerHTML= generate2;
+      }
+
+      function addrandom(){
+        var randomadd1=document.getElementById("randomnumber1").innerHTML;
+        var randomadd2=document.getElementById("randomnumber2").innerHTML;
+        var randomsum = parseFloat(randomadd1)+parseFloat(randomadd2);
+        if(!isNaN(randomsum)){
+        document.getElementById("randomanswer").innerHTML= randomsum + " is your randomly generated sum!";
+      }
+    }
+
+    function subrandom(){
+      var randomsub1=document.getElementById("randomnumber1").innerHTML;
+      var randomsub2=document.getElementById("randomnumber2").innerHTML;
+      var randomsub = parseFloat(randomsub1)-parseFloat(randomsub2);
+      if(!isNaN(randomsub)){
+      document.getElementById("randomanswer").innerHTML= randomsub + " is your randomly generated difference!";
+    }
+  }
+
+  function multrandom(){
+    var randomprod1=document.getElementById("randomnumber1").innerHTML;
+    var randomprod2=document.getElementById("randomnumber2").innerHTML;
+    var randomprod = parseFloat(randomprod1)*parseFloat(randomprod2);
+    if(!isNaN(randomprod)){
+    document.getElementById("randomanswer").innerHTML= randomprod + " is your randomly generated product!";
+  }
+}
+
+function divrandom(){
+  var randomdiv1=document.getElementById("randomnumber1").innerHTML;
+  var randomdiv2=document.getElementById("randomnumber2").innerHTML;
+  var randomdivunround = parseFloat(randomdiv1)/parseFloat(randomdiv2);
+  var randomdiv = randomdivunround.toFixed(2);
+  if(!isNaN(randomdiv)){
+  document.getElementById("randomanswer").innerHTML= randomdiv + " is your randomly generated quotient!";
+}
+}
+    </script>
+  </div>
   <div id= outro>
   <h3>Any answers gathered from the ancient methods are not
   guaranteed to be correct. The stones can be fickle. If you catch them on
@@ -167,6 +228,11 @@
   $("#question6").click(function(){
     $("#answer6").fadeToggle();
   });
+
+  /*$("generatebutton").click(funtion(){
+    var generate1 = Math.floor(Math.random()*100);
+    generate1 =document.getElementById('dividenumber1').value;
+  })*/
 
   });
   </script>
