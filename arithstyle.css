@@ -5,6 +5,7 @@ body {
 
 h1 {
 font-family: Helvetica;
+font-weight: 540;
 font-size: 40px;
 text-align: center;
 display: block;
@@ -78,18 +79,26 @@ button {
 
 #additionzone button {
   background-color: skyblue;
+  font-weight: bold;
+  border-radius: 50%;
 }
 
 #subtractionzone button {
   background-color: palegreen;
+  font-weight: bold;
+  border-radius: 50%;
 }
 
 #multiplicationzone button {
   background-color: pink;
+  font-weight: bold;
+  border-radius: 50%;
 }
 
 #divisionzone button {
   background-color: #fffca5;
+  font-weight: bold;
+  border-radius: 50%;
 }
 
 h3 {
@@ -107,7 +116,7 @@ h3 {
 h4 {
   font-family: Helvetica;
   font-size: 16px;
-  font-weight: bolder;
+  font-weight: 540;
   max-width: 300px;
   margin: auto;
   text-align: center;
@@ -135,6 +144,7 @@ h5 {
   margin-left: 3vw;
   margin-right: 3vw;
   margin-bottom: 2vw;
+
 }
 
 #question1 {
@@ -279,6 +289,8 @@ h5 {
   width: 50px;
   margin: auto;
   margin-bottom: 2vw;
+  font-weight: bold;
+  border-radius: 50%;
 }
 
 #randomsub{
@@ -288,6 +300,8 @@ h5 {
   width: 50px;
   margin: auto;
   margin-bottom: 2vw;
+  font-weight: bold;
+  border-radius: 50%;
 }
 
 #randommult{
@@ -297,6 +311,8 @@ h5 {
   width: 50px;
   margin: auto;
   margin-bottom: 2vw;
+  font-weight: bold;
+  border-radius: 50%;
 }
 
 #randomdiv{
@@ -306,6 +322,8 @@ h5 {
   width: 50px;
   margin: auto;
   margin-bottom: 2vw;
+  font-weight: bold;
+  border-radius: 50%;
 }
 
 #problemgenerator h5{

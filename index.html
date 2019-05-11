@@ -78,7 +78,7 @@
              <input type="text" name="dividenumber1" id="dividenumber1" placeholder="Starting Number..." required>
         <form action="/submit-division2">
              <input type="text" name="dividenumber2" id="dividenumber2" placeholder="Number to Divide by..." required>
-             <button type="button" onclick="divide()">/</button>
+             <button type="button" onclick="divide()">÷</button>
              </form>
         <h2 id="quotientanswer"></h2>
         <script language="javascript">
@@ -86,7 +86,7 @@
           var divide1=document.getElementById('dividenumber1').value;
           var divide2=document.getElementById('dividenumber2').value;
           var quotientunround = parseFloat(divide1)/parseFloat(divide2);
-          var quotient = quotientunround.toFixed(2);
+          var quotient = Math.round(quotientunround*100)/100;
           if(!isNaN(quotient)){
           document.getElementById("quotientanswer").innerHTML= quotient + " is your requested quotient!";
         }
@@ -98,37 +98,37 @@
   <h1>True or False? Click to Reveal!<h1>
   </div>
   <div id= quizcontainer>
-    <div id= question1>
+    <div id= question1 class="answerreveal" data-answerid="answer1">
       <h4>The word "arithmetic" essentially means "number art" in Greek.</h4>
     </div>
       <div id= answer1>
         <h5><strong>True!</strong> The word "arithmos" roughly translates to number, and "tike" to art.</h5>
       </div>
-      <div id= question2>
+      <div id= question2 class="answerreveal" data-answerid="answer2">
         <h4>There are four key operations in arithmetic.</h4>
       </div>
         <div id= answer2>
           <h5><strong>True!</strong> Addition, subtraction, multiplication, and division. You can do them all above!</h5>
         </div>
-        <div id= question3>
+        <div id= question3 class="answerreveal" data-answerid="answer3">
           <h4>Arithmetic is not considered part of Number Theory.</h4>
         </div>
           <div id= answer3>
             <h5><strong>False!</strong> Arithmetic is so integral to Number Theory that it was even used as a synonym for it.</h5>
           </div>
-          <div id= question4>
+          <div id= question4 class="answerreveal" data-answerid="answer4">
             <h4>The history of arithmetic dates back to 2000 B.C.E.</h4>
           </div>
             <div id= answer4>
               <h5><strong>False!</strong> Early evidence of addition and subtraction has been observed as early as 20,000 B.C.E.</h5>
             </div>
-            <div id= question5>
+            <div id= question5 class="answerreveal" data-answerid="answer5">
               <h4>Arithmetic was taught as an essential science in Universities during the Middle Ages.</h4>
             </div>
               <div id= answer5>
                 <h5><strong>False!</strong> During the Middle Ages arithmetic was taught as a liberal art. Weird.</h5>
               </div>
-              <div id= question6>
+              <div id= question6 class="answerreveal" data-answerid="answer6">
                 <h4>Arithmetic must be performed according to the order of operations.</h4>
               </div>
                 <div id= answer6>
@@ -146,7 +146,7 @@
     <button type="button" id="randomadd" onclick="addrandom()">+</button>
     <button type="button" id="randomsub" onclick="subrandom()">-</button>
     <button type="button" id="randommult" onclick="multrandom()">x</button>
-    <button type="button" id="randomdiv" onclick="divrandom()">/</button>
+    <button type="button" id="randomdiv" onclick="divrandom()">÷</button>
     <h5 id= randomanswer></h5>
     <script language="javascript">
 
@@ -155,6 +155,7 @@ function generate(){
     var generate2 = Math.floor(Math.random()*100);
       document.getElementById("randomnumber1").innerHTML= generate1;
       document.getElementById("randomnumber2").innerHTML= generate2;
+      document.getElementById("randomanswer").innerHTML="";
       }
 
       function addrandom(){
@@ -188,7 +189,7 @@ function divrandom(){
   var randomdiv1=document.getElementById("randomnumber1").innerHTML;
   var randomdiv2=document.getElementById("randomnumber2").innerHTML;
   var randomdivunround = parseFloat(randomdiv1)/parseFloat(randomdiv2);
-  var randomdiv = randomdivunround.toFixed(2);
+  var randomdiv = Math.round(randomdivunround*100)/100;;
   if(!isNaN(randomdiv)){
   document.getElementById("randomanswer").innerHTML= randomdiv + " is your randomly generated quotient!";
 }
@@ -208,29 +209,10 @@ function divrandom(){
   <script src="jquery-3.4.1.js"></script>
   <script> $(function() {
 
-  $("#question1").click(function(){
-    $("#answer1").fadeToggle();
-  });
-
-  $("#question2").click(function(){
-    $("#answer2").fadeToggle();
-  });
-
-  $("#question3").click(function(){
-    $("#answer3").fadeToggle();
-  });
-
-  $("#question4").click(function(){
-    $("#answer4").fadeToggle();
-  });
-
-  $("#question5").click(function(){
-    $("#answer5").fadeToggle();
-  });
-
-  $("#question6").click(function(){
-    $("#answer6").fadeToggle();
-  });
+    $(".answerreveal").click(function(){
+      var answerId = $(this).attr("data-answerid");
+      $("#"+answerId).toggle();
+    })
 
   });
   </script>
